@@ -8,14 +8,23 @@ React 18 + TypeScript + Vite 6 + MUI v5 + Firebase v10 (Auth, Firestore, Hosting
 
 ## Agent Orchestration Prompt
 
-When told to **"build kindling"**, execute the following plan. Do NOT start implementation until a human confirms. Produce documents first, get approval, then build.
+When told to **"build kindling"** or **"go"**, execute the build plan.
+
+**STATUS: Phases 0-2 complete. All manual setup done. Skip straight to Phase 3 (Build).**
+- TDD: `doc/tdd.md` ✓
+- Human setup: `doc/human-setup.md` ✓ (all steps completed)
+- Implementation plan: `doc/implementation-plan.md` ✓
+- Firebase project (`kindling-prod`): configured ✓
+- GitHub repo (`halvorson/kindling`): created, secrets set ✓
+- Permission allowlist (`.claude/settings.json`): configured ✓
 
 ### Phase 0: Pre-flight (you, immediately)
 
-Request these permissions upfront so the human isn't interrupted mid-flow:
+Permissions are pre-configured in `.claude/settings.json`. Verify they're loaded — if not, these are the patterns:
 - `Bash(npm *)` — package installs, vite scaffold, build commands
 - `Bash(npx *)` — create-vite, firebase tools
 - `Bash(git *)` — commits, branches
+- `Bash(firebase *)` — firebase CLI commands
 - `Write(*)` — creating all project files
 - `Edit(*)` — modifying files
 
